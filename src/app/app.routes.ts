@@ -4,11 +4,15 @@ import { ViewAllEmployeeComponent } from './page/view-all-employee/view-all-empl
 
 export const routes: Routes = [
     {
-        path:"add-employee",
-        component:ManageEmpComponent
+        path : "add-employee",
+        component : ManageEmpComponent
     },
     {
-        path:"view-all-employee",
-        component:ViewAllEmployeeComponent
+        path : "view-all-employee",
+        component : ViewAllEmployeeComponent
+    },
+    {
+        path : "",
+        component :  ManageEmpComponent
     }
 ];
