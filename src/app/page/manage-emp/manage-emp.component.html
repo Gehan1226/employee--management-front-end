@@ -13,51 +13,75 @@
         <div class="col">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">First Name</span>
-        
-                <input type="text" class="form-control" aria-label="Username"
-                    aria-describedby="basic-addon1" [(ngModel)]="employeeObj.firstName"> 
+
+                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+                    [(ngModel)]="employeeObj.firstName">
             </div>
-        
+
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Last Name</span>
-        
-                <input type="text" class="form-control" aria-label="Username"
-                    aria-describedby="basic-addon1" [(ngModel)]="employeeObj.lastName">
+
+                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+                    [(ngModel)]="employeeObj.lastName">
             </div>
-        
+
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Email </span>
 
                 <input type="text" class="form-control" aria-label="Recipient's username"
-                    aria-describedby="basic-addon2" [(ngModel)]="employeeObj.email">            
+                    aria-describedby="basic-addon2" [(ngModel)]="employeeObj.email">
             </div>
-        
+
             <div class="input-group mb-3">
                 <label class="input-group-text" for="inputGroupSelect01">Department</label>
-        
+
                 <select class="form-select" id="inputGroupSelect01" required [(ngModel)]="employeeObj.departmentId">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="No Department">No Department</option>
+                    <option value="Product Development">Product Development</option>
+                    <option value="Project Management">Project Management</option>
+                    <option value="Sales and Marketing">Sales and Marketing</option>
+                    <option value="Customer Support">Customer Support</option>
+                    <option value="Human Resources">Human Resources</option>
+                    <option value="Finance and Accounting">Finance and Accounting</option>
+                    <option value="IT and Infrastructure">IT and Infrastructure</option>
+                    <option value="Legal and Compliance">Legal and Compliance</option>
+                    <option value="Administration and Operations">Administration and Operations</option>
+                    <option value="Product Management">Product Management</option>
                 </select>
             </div>
-        
+
             <div class="input-group mb-3">
                 <label class="input-group-text" for="inputGroupSelect01">Role</label>
-                <select class="form-select" id="inputGroupSelect01" required  [(ngModel)]="employeeObj.roleId">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select class="form-select" id="inputGroupSelect01" required [(ngModel)]="employeeObj.roleId">
+                    <option value="No Role">No Role</option>
+                    <option value="Software Developer/Engineer">Software Developer/Engineer</option>
+                    <option value="Quality Assurance (QA)">Quality Assurance (QA)</option>
+                    <option value="User Experience (UX) Design">User Experience (UX) Design</option>
+                    <option value="Research and Development (R&D)">Research and Development (R&D)</option>
+                    <option value="Project Manager">Project Manager</option>
+                    <option value="Sales Manager">Sales Manager</option>
+                    <option value="Marketing Manager">Marketing Manager</option>
+                    <option value="Technical Support Specialist">Technical Support Specialist</option>
+                    <option value="Customer Support Representative">Customer Support Representative</option>
+                    <option value="HR Manager">HR Manager</option>
+                    <option value="Research and Development (R&D)">Research and Development (R&D)</option>
+                    <option value="Chief Financial Officer (CFO)">Chief Financial Officer (CFO)</option>
+                    <option value="Accountant">Accountant</option>
+                    <option value="IT Manager">IT Manager</option>
+                    <option value="IT Support Specialist">IT Support Specialist</option>
+                    <option value="Legal Counsel">Legal Counsel</option>
+                    <option value="Office Manager">Office Manager</option>
+                    <option value="Administrative Assistant">Administrative Assistant</option>
+                    <option value="Product Manager">Product Manager</option>
+                    <option value="Product Analyst">Product Analyst</option>
                 </select>
             </div>
-        
+
             <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-success" (click)="addEmployee()" >Add Employee</button>
+                <button type="button" class="btn btn-success" (click)="addEmployee()">Add Employee</button>
             </div>
         </div>
 
     </div>
-    
+
 </div>
