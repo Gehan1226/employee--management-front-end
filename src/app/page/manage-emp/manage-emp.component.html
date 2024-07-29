@@ -2,52 +2,62 @@
 
 <h1 class="title-add-employee text-center mb-4 p-4">Add Employee</h1>
 
-<div class="container m-5">
+<div class="container m-2">
 
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1"></span>
+    <div class="row row-cols-md-2 row-cols-sm-1 d-flex align-items-center">
 
-        <input type="text" class="form-control" placeholder="First Name" aria-label="Username"
-            aria-describedby="basic-addon1" [(ngModel)]="employeeObj.firstName"> 
+        <div class="col text-center">
+            <img src="../../../assets/images/add-emp-img.png" alt="" srcset="" width="450px">
+        </div>
+
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">First Name</span>
+        
+                <input type="text" class="form-control" aria-label="Username"
+                    aria-describedby="basic-addon1" [(ngModel)]="employeeObj.firstName"> 
+            </div>
+        
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Last Name</span>
+        
+                <input type="text" class="form-control" aria-label="Username"
+                    aria-describedby="basic-addon1" [(ngModel)]="employeeObj.lastName">
+            </div>
+        
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Email </span>
+
+                <input type="text" class="form-control" aria-label="Recipient's username"
+                    aria-describedby="basic-addon2" [(ngModel)]="employeeObj.email">            
+            </div>
+        
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Department</label>
+        
+                <select class="form-select" id="inputGroupSelect01" required [(ngModel)]="employeeObj.departmentId">
+                    <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Role</label>
+                <select class="form-select" id="inputGroupSelect01" required  [(ngModel)]="employeeObj.roleId">
+                    <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-success" (click)="addEmployee()" >Add Employee</button>
+            </div>
+        </div>
+
     </div>
-
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1"></span>
-
-        <input type="text" class="form-control" placeholder="Last Name" aria-label="Username"
-            aria-describedby="basic-addon1" [(ngModel)]="employeeObj.lastName">
-    </div>
-
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="email address" aria-label="Recipient's username"
-            aria-describedby="basic-addon2" [(ngModel)]="employeeObj.email">
-
-        <span class="input-group-text" id="basic-addon2">.com</span>
-    </div>
-
-    <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Department</label>
-
-        <select class="form-select" id="inputGroupSelect01" required [(ngModel)]="employeeObj.departmentId">
-            <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
-    </div>
-
-    <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Role</label>
-        <select class="form-select" id="inputGroupSelect01" required  [(ngModel)]="employeeObj.roleId">
-            <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
-    </div>
-
-    <div class=" d-flex justify-content-center">
-        <button type="button" class="btn btn-primary" (click)="addEmployee()" >Add Employee</button>
-    </div>
-
+    
 </div>
