@@ -17,11 +17,11 @@ export class ManageEmpComponent {
   constructor(private http : HttpClient){}
 
   public employeeObj = {
-    firstName :"",
-    lastName :"",
-    email : "",
-    departmentId : "",
-    roleId : ""
+    firstName :undefined,
+    lastName : undefined,
+    email : undefined,
+    departmentId : undefined,
+    roleId : undefined
   };
 
   addEmployee(){
@@ -31,9 +31,18 @@ export class ManageEmpComponent {
           title: "Employed added!",
           text: "Employee Saved to Database",
           icon: "success"
-        });
+        }); 
+        this.clearEmployee();
       }
     );
   };
+
+  clearEmployee(){
+    this.employeeObj.firstName = undefined;
+    this.employeeObj.lastName = undefined;
+    this.employeeObj.email = undefined;
+    this.employeeObj.departmentId = undefined;
+    this.employeeObj.roleId = undefined;
+  }
 
 }
