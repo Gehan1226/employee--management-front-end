@@ -13,8 +13,16 @@ import { NavComponent } from "../../common/nav/nav.component";
   styleUrl: './view-all-employee.component.css'
 })
 export class ViewAllEmployeeComponent {
-
   public employeeList: any;
+
+  public selectedEmployee = {
+    id: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    departmentId: "",
+    roleId: ""
+  };
 
   constructor(private http: HttpClient) {
     this.loadEmployeeTable();
@@ -29,7 +37,6 @@ export class ViewAllEmployeeComponent {
   }
 
   deleteEmployee(employee: any) {
-
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -55,8 +62,18 @@ export class ViewAllEmployeeComponent {
 
       }
     });
+  }
 
+  updateEmployee(employee: any) {
+    if(employee!=null){
+      this.selectedEmployee = employee;
+    }
+  }
 
+  saveUpdatedEmployee(){
+    this.http.put("http://localhost:8080/emp-controller/update-employee", this.selectedEmployee).subscribe(res => {
+      console.log(res);
+    })
   }
 
 }
