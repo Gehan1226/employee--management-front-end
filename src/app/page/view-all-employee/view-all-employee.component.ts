@@ -65,15 +65,36 @@ export class ViewAllEmployeeComponent {
   }
 
   updateEmployee(employee: any) {
-    if(employee!=null){
-      this.selectedEmployee = employee;
+    if (employee != null) {
+      this.selectedEmployee.id = employee.id;
+      this.selectedEmployee.firstName = employee.firstName;
+      this.selectedEmployee.lastName = employee.lastName;
+      this.selectedEmployee.email = employee.email;
+      this.selectedEmployee.departmentId = employee.departmentId;
+      this.selectedEmployee.roleId = employee.roleId;
     }
   }
 
-  saveUpdatedEmployee(){
-    this.http.put("http://localhost:8080/emp-controller/update-employee", this.selectedEmployee).subscribe(res => {
-      console.log(res);
-    })
+  saveUpdatedEmployee() {
+    Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.http.put("http://localhost:8080/emp-controller/update-employee", this.selectedEmployee).subscribe(res => {
+          Swal.fire("Saved!", "", "success");
+          this.loadEmployeeTable();
+        })
+
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+      }
+    });
+
   }
 
 }
