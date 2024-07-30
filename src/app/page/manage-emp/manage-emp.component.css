@@ -4,3 +4,7 @@
     font-weight: 600;
 }
 
+#add-emp-img{
+    max-width: 400px;
+    min-width: 250px;
+}

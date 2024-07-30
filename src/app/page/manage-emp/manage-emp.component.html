@@ -1,16 +1,17 @@
 <app-nav></app-nav>
 
-<h1 class="title-add-employee text-center mb-4 p-4">Add Employee</h1>
+<h2 class="title-add-employee text-center mb-4 p-4">Add Employee</h2>
 
-<div class="container m-2">
+<div class="container mt-2">
 
     <div class="row row-cols-md-2 row-cols-sm-1 d-flex align-items-center">
 
         <div class="col text-center">
-            <img src="../../../assets/images/add-emp-img.png" alt="" srcset="" width="450px">
+            <img src="../../../assets/images/add-emp-img.png"
+                alt="Add Employee Clipart" srcset="" id="add-emp-img" class="w-75">
         </div>
 
-        <div class="col">
+        <div class="col-12">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">First Name</span>
 
@@ -78,7 +79,7 @@
             </div>
 
             <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-success" (click)="addEmployee()">Add Employee</button>
+                <button type="button" class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
             </div>
         </div>
 
