@@ -1,6 +1,6 @@
 <app-nav></app-nav>
 
-<h2 class="title-add-employee text-center mb-4 p-4">Add Employee</h2>
+<h2 class="title-add-employee text-center mb-4 p-4">Employee Registration</h2>
 
 <div class="container mt-2">
 
@@ -20,7 +20,7 @@
 
     </div>
 
-    <form [formGroup]="employeeForm" class="row row-cols-md-2 row-cols-sm-1 mt-5 p-5">
+    <form [formGroup]="employeeForm" class="row row-cols-md-2 row-cols-sm-1 mt-5 p-5 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
 
         <div class="col-12">
 
@@ -122,14 +122,15 @@
                     formControlName="phoneNumber"
                     [ngClass]="{'is-invalid': getControl('phoneNumber')?.invalid && getControl('phoneNumber')?.touched}">
 
-                    <div *ngIf="getControl('phoneNumber')?.invalid && getControl('phoneNumber')?.touched" class="invalid-tooltip">
-                        <div *ngIf="getControl('phoneNumber')?.errors?.['required']">
-                          Phone number is required.
-                        </div>
-                        <div *ngIf="getControl('phoneNumber')?.errors?.['pattern']">
-                          Invalid phone number.
-                        </div>
-                      </div>
+                <div *ngIf="getControl('phoneNumber')?.invalid && getControl('phoneNumber')?.touched"
+                    class="invalid-tooltip">
+                    <div *ngIf="getControl('phoneNumber')?.errors?.['required']">
+                        Phone number is required.
+                    </div>
+                    <div *ngIf="getControl('phoneNumber')?.errors?.['pattern']">
+                        Invalid phone number.
+                    </div>
+                </div>
 
             </div>
 
@@ -173,7 +174,8 @@
     </form>
 
     <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-primary" (click)="addEmployee()" [disabled]="employeeForm.invalid">Add Employee</button>
+        <button type="button" class="btn" (click)="addEmployee()" [disabled]="employeeForm.invalid">Add
+            Employee</button>
     </div>
 
 </div>
