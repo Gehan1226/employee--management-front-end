@@ -7,36 +7,66 @@
     <div class="row row-cols-md-2 row-cols-sm-1 d-flex align-items-center">
 
         <div class="col text-center">
-            <img src="../../../assets/images/add-emp-img.png"
-                alt="Add Employee Clipart" srcset="" id="add-emp-img" class="w-75">
+            <img src="../../../assets/images/emp-reg.png" alt="Add Employee Clipart" srcset="" id="add-emp-img">
         </div>
 
+        <div class="col-12 g-4">
+            <p id="add-emp-p1"><i>Welcome to the Employee Registration Form. Please fill out the following fields to
+                    register a new
+                    employee in the system. Ensure all required fields are completed accurately. Your information will
+                    be
+                    securely stored and used to manage employee records within the company.</i></p>
+        </div>
+
+    </div>
+
+    <form [formGroup]="employeeForm" class="row row-cols-md-2 row-cols-sm-1 mt-5 p-5">
+
         <div class="col-12">
-            <div class="input-group mb-3">
+
+            <div class="input-group mb-4">
                 <span class="input-group-text" id="basic-addon1">First Name</span>
 
-                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
-                    [(ngModel)]="employeeObj.firstName">
+                <input type="text" class="form-control" aria-label="FirstName" aria-describedby="basic-addon1"
+                    formControlName="firstName"
+                    [ngClass]="{'is-invalid': getControl('firstName')?.invalid && getControl('firstName')?.touched}">
+
+                <div *ngIf="getControl('firstName')?.invalid && getControl('firstName')?.touched"
+                    class="invalid-tooltip">
+                    First Name is required.
+                </div>
             </div>
 
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Last Name</span>
-
-                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
-                    [(ngModel)]="employeeObj.lastName">
-            </div>
-
-            <div class="input-group mb-3">
+            <div class="input-group mb-4">
                 <span class="input-group-text" id="basic-addon1">Email </span>
 
-                <input type="text" class="form-control" aria-label="Recipient's username"
-                    aria-describedby="basic-addon2" [(ngModel)]="employeeObj.email">
+                <input type="email" class="form-control" aria-label="email" aria-describedby="basic-addon2"
+                    formControlName="email"
+                    [ngClass]="{'is-invalid':  getControl('email')?.invalid && getControl('email')?.touched}">
+
+                <div *ngIf="getControl('email')?.invalid && getControl('email')?.touched" class="invalid-tooltip">
+                    Email is required.
+                </div>
             </div>
 
-            <div class="input-group mb-3">
+            <div class="input-group mb-4">
+                <span class="input-group-text" id="basic-addon1">Address</span>
+
+                <input type="text" class="form-control" aria-label="Address" aria-describedby="basic-addon1"
+                    formControlName="address"
+                    [ngClass]="{'is-invalid':  getControl('address')?.invalid && getControl('address')?.touched}">
+
+                <div *ngIf="getControl('address')?.invalid && getControl('address')?.touched" class="invalid-tooltip">
+                    Address is required.
+                </div>
+            </div>
+
+            <div class="input-group mb-4">
                 <label class="input-group-text" for="inputGroupSelect01">Department</label>
 
-                <select class="form-select" id="inputGroupSelect01" required [(ngModel)]="employeeObj.departmentId">
+                <select class="form-select" id="inputGroupSelect01" required formControlName="departmentId"
+                    [ngClass]="{'is-invalid':  getControl('departmentId')?.invalid && getControl('departmentId')?.touched}">
+
                     <option value="No Department">No Department</option>
                     <option value="Product Development">Product Development</option>
                     <option value="Project Management">Project Management</option>
@@ -48,12 +78,67 @@
                     <option value="Legal and Compliance">Legal and Compliance</option>
                     <option value="Administration and Operations">Administration and Operations</option>
                     <option value="Product Management">Product Management</option>
+
                 </select>
+
+                <div *ngIf="getControl('departmentId')?.invalid && getControl('departmentId')?.touched"
+                    class="invalid-tooltip">
+                    Department is required.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-12">
+
+            <div class="input-group mb-4">
+                <span class="input-group-text" id="basic-addon1">Last Name</span>
+
+                <input type="text" class="form-control" aria-label="lastName" aria-describedby="basic-addon1"
+                    formControlName="lastName"
+                    [ngClass]="{'is-invalid':  getControl('lastName')?.invalid && getControl('lastName')?.touched}">
+
+                <div *ngIf="getControl('lastName')?.invalid && getControl('lastName')?.touched" class="invalid-tooltip">
+                    Last Name is required.
+                </div>
+            </div>
+
+            <div class="input-group mb-4">
+                <span class="input-group-text" id="basic-addon1">DOB</span>
+
+                <input type="date" class="form-control" aria-label="DOB" aria-describedby="basic-addon1"
+                    formControlName="dob"
+                    [ngClass]="{'is-invalid':  getControl('dob')?.invalid && getControl('dob')?.touched}">
+
+                <div *ngIf="getControl('dob')?.invalid && getControl('dob')?.touched" class="invalid-tooltip">
+                    Birthday is required.
+                </div>
+            </div>
+
+            <div class="input-group mb-4">
+                <span class="input-group-text" id="basic-addon1">Phone Number</span>
+
+                <input type="text" class="form-control" aria-label="Address" aria-describedby="basic-addon1"
+                    formControlName="phoneNumber"
+                    [ngClass]="{'is-invalid': getControl('phoneNumber')?.invalid && getControl('phoneNumber')?.touched}">
+
+                    <div *ngIf="getControl('phoneNumber')?.invalid && getControl('phoneNumber')?.touched" class="invalid-tooltip">
+                        <div *ngIf="getControl('phoneNumber')?.errors?.['required']">
+                          Phone number is required.
+                        </div>
+                        <div *ngIf="getControl('phoneNumber')?.errors?.['pattern']">
+                          Invalid phone number.
+                        </div>
+                      </div>
+
             </div>
 
             <div class="input-group mb-3">
                 <label class="input-group-text" for="inputGroupSelect01">Role</label>
-                <select class="form-select" id="inputGroupSelect01" required [(ngModel)]="employeeObj.roleId">
+
+                <select class="form-select" id="inputGroupSelect01" required formControlName="roleId"
+                    [ngClass]="{'is-invalid':  getControl('roleId')?.invalid && getControl('roleId')?.touched}">
+
                     <option value="No Role">No Role</option>
                     <option value="Software Developer/Engineer">Software Developer/Engineer</option>
                     <option value="Quality Assurance (QA)">Quality Assurance (QA)</option>
@@ -75,14 +160,20 @@
                     <option value="Administrative Assistant">Administrative Assistant</option>
                     <option value="Product Manager">Product Manager</option>
                     <option value="Product Analyst">Product Analyst</option>
+
                 </select>
+
+                <div *ngIf="getControl('roleId')?.invalid && getControl('roleId')?.touched" class="invalid-tooltip">
+                    Role is required.
+                </div>
             </div>
 
-            <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
-            </div>
         </div>
 
+    </form>
+
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary" (click)="addEmployee()" [disabled]="employeeForm.invalid">Add Employee</button>
     </div>
 
 </div>
